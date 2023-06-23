@@ -5,6 +5,7 @@ import recipeReducer from "./Slices/recipeSlice"
 export const store = configureStore({
     reducer: {
         authorizationReducer,
+        recipeReducer,
     },
 });
 

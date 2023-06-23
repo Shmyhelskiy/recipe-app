@@ -1,20 +1,7 @@
-import { findUserByEmail } from "@/Functions";
+import { checkFavoriteRecipe, findAuthUser, findUserByEmail } from "@/Functions";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-    type recipeType = {
-        id: number,
-        title: string,
-        description: string,
-        ingredients: string[],
-        image: string,
-    };
-
     type authDataState = UserType[];    
-
-    type RecipeDataProps = {
-        data: recipeType,
-        isAuth: string,
-    };
 
     const initialState: authDataState = [];
 
@@ -46,6 +33,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
                 localStorage.setItem('Users', JSON.stringify(state));
             }, 
 
+            addUserFavorite: (state, action: PayloadAction<recipeType>) => {
+                const User = findAuthUser(state);
+                const test = checkFavoriteRecipe(state, action.payload.id)
+                if ( test  === null) {
+                    User?.favorite?.push(action.payload);
+                }
+                
+                localStorage.setItem('Users', JSON.stringify(state));
+            },
+            
+            
         },
     });
 
@@ -54,6 +52,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
         createAuthDataStore,
         signIn,
         signOut,
+        addUserFavorite,
     } = authorization.actions;
     export default authorization.reducer;
 

@@ -13,3 +13,21 @@ export const findUserByEmail = (state: authDataState, email: string) => {
 export const findAuthUser = ( state: authDataState) => {
     return state.find(item => item.isAuth === true)
 }
+
+export const checkFavoriteRecipe = (state: authDataState, id: number) => {
+    const User = findAuthUser(state);
+    return findRecipe(User?.favorite || [], id)
+    
+}
+
+const findRecipe = (recipes: recipeType[], id: number) =>{
+    const recipe = recipes.findIndex(item => item.id === id)
+    if ( recipe === -1) {
+        return null
+    } else return recipes.splice(recipe, 1)
+}
+export const findFavoriteRecipe = (recipe: recipeType, user: UserType | undefined) => {
+const  { id } = recipe;
+if ( user?.favorite?.find(item => item.id === id) )return true
+return false
+}

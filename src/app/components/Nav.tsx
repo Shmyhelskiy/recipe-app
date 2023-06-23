@@ -15,9 +15,9 @@ const Nav:FC = () => {
 
     
     return (
-        <nav className="h-16 bg-orange-700 text-white flex items-center">
+        <nav className="h-16 bg-orange-600 text-white flex items-center">
             <div className="flex items-center justify-start p-5 w-1/3 h-full">
-                <ul className="flex items-center justify-start h-12 pl-5">
+                <ul className="flex items-center justify-start h-12 pl-5 text-xl">
                     <li className='mr-5'>
                         <Link href='/' className="mr-3 hover:text-blue-500 cursor-pointer">Home</Link>
                     </li>

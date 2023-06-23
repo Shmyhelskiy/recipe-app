@@ -14,7 +14,7 @@ const initialState: recipeType[] = [
         title: `Classic scrambled eggs`,
         description: `Heat the pan over high heat for half a minute. Reduce the heat to a minimum and thoroughly grease the pan with oil. Carefully break the eggs into the pan so that the yolk remains intact. Fry the eggs over low heat until the protein reaches the desired consistency. The finished scrambled eggs should slide easily onto the plate. Salt the eggs, sprinkle with red pepper or any other seasoning as desired.`,
         ingredients: [`eggs -2 pcs`,`oil -1 tsp`,`salt - to taste`],
-        image: `/Classic scrambled eggs.jpeg`,
+        image: `/Classic scrambled eggs.jpg`,
     }, 
     {   
         id: 1,
@@ -34,7 +34,7 @@ const initialState: recipeType[] = [
             `2 teaspoons (10 ml) of vinegar`,
             `2 tablespoons (30 g) of butter`,
         ],
-        image: `/Pork chops with bourbon.jpg`,
+        image: `/Pork chops with bourbon.jpeg`,
     }
 ];
 

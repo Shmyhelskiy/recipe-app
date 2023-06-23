@@ -6,3 +6,11 @@ type UserType = {
     isAuth?: boolean,
 }
 type authDataState = UserType[];    
+
+type recipeType = {
+    id: number,
+    title: string,
+    description: string,
+    ingredients: string[],
+    image: string,
+};
