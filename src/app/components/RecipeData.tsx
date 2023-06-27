@@ -36,7 +36,8 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
                 src={image}
                 alt={title}
                 width={600}
-                height={50}
+                height={200}
+                className='h-[250px] w-full'
             />
             <button onClick={() => setIsOpenIngredients(!isOpenIngredients)} className='font-bold'>Ingredients:</button>
             {

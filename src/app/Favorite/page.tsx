@@ -15,7 +15,7 @@ const Favorite = () => {
         <main>
             {!isAuth ? 
             <div className="h-full flex justify-center items-center">
-                <h1 className="font-bold text-3xl text-black/75">Sorry, you are not authorized  
+                <h1 className="font-bold text-3xl text-black/75 mt-[20%]">Sorry, you are not authorized  
                 <Link 
                 href='/SignIn'
                 className="text-sky-500/50 hover:text-sky-500"> sign in...</Link>
