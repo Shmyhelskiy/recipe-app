@@ -22,7 +22,7 @@ const Nav:FC = () => {
                         <Link href='/' className="mr-3 hover:text-blue-500 cursor-pointer">Home</Link>
                     </li>
                     <li>
-                        <Link href='/Favorite' className="mr-1 hover:text-blue-500 cursor-pointer">Favorite</Link>
+                        <Link href='/Favorite' className="mr-3 hover:text-blue-500 cursor-pointer">Favorite</Link>
                     </li>
                 </ul>
             </div>
