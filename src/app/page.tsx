@@ -9,7 +9,7 @@ export default function Home() {
   const recipes = useAppSelector(state => state.recipeReducer)
   const Users = useAppSelector(state => state.authorizationReducer)
   const isAuthUser = findAuthUser(Users);
-
+  
   return (
     <main className="h-full">
         <h1 className="font-bold text-center mt-5 text-3xl">Welcome to recipe library </h1>
