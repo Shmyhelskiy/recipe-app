@@ -36,7 +36,6 @@ export const fetchRecipesbyId = async (id: number) =>{
                 },
             }
             )
-        console.log(response.data);
         
     return response.data;
     }
