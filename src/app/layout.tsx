@@ -1,4 +1,3 @@
-import LoudingData from './components/LoudingData'
 import Nav from './components/Nav'
 import Providers from './components/Providers'
 import './globals.css'
@@ -21,7 +20,6 @@ export default function RootLayout({
           <header>
             <Nav />
           </header>
-          <LoudingData />
           {children}
         </Providers>
       </body>
