@@ -36,8 +36,9 @@ export const fetchRecipesbyId = async (id: number) =>{
                 },
             }
             )
-        
-    return response.data;
+            const { title,image, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree} = response.data
+            const data = { title,image, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree}   
+    return data
     }
     catch (error) {
         console.error('Error fetching recipes:', error);

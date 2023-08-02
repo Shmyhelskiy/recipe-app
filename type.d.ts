@@ -12,4 +12,13 @@ type recipeType = {
     title: string,
     image: string,
     imageType?: string,
+    analyzedInstructions?: {
+        name: string;
+        steps: { number: number; step: string }[];
+    }[];
+    cheap?: boolean;
+    dairyFree?: boolean;
+    readyInMinutes?: number;
+    servings?: number;
+    glutenFree?: boolean;
 };

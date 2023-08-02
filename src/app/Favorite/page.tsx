@@ -14,15 +14,15 @@ const Favorite = () => {
     return (
         <main>
             {!isAuth ? 
-            <div className="h-full flex justify-center items-center">
-                <h1 className="font-bold text-3xl text-black/75 mt-[20%]">Sorry, you are not authorized  
+            <div className="h-full flex justify-center items-center text-base sm:text-3xl">
+                <h1 className="font-bold  text-black/75 mt-[20%]">Sorry, you are not authorized  
                 <Link 
                 href='/SignIn'
                 className="text-sky-500/50 hover:text-sky-500"> sign in...</Link>
                 </h1>
             </div>   
         : 
-        <div className="flex w-full p-5 gap-2">
+        <div className="flex w-full p-5 gap-2 flex-col sm:flex-row">
             {
                 isAuthUser?.favorite?.length === 0 ? 
                 <Link href='/'  className="font-bold text-2xl text-center w-full text-black/70 hover:text-black">If you don't have a favorite recipe, add one...</Link>

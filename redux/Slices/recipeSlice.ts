@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { checkRepeatability } from "../../FunctionsRecipe";
+import { checkRepeatability, fetchRecipesbyId } from "../../FunctionsRecipe";
 
 const initialState: recipeType[] = [];
+
 
 export const recipe = createSlice({
     name: "recipe",
@@ -13,6 +14,9 @@ export const recipe = createSlice({
         },
         cleanRecipe: (state) =>{
             return state = initialState
+        },
+        addInformationById: (state, action: PayloadAction<number>) =>{
+            const data = fetchRecipesbyId(action.payload)
         }
     }
 });
@@ -20,6 +24,7 @@ export const recipe = createSlice({
 export const {
     fetchRecipe,
     cleanRecipe,
+    addInformationById,
 } = recipe.actions;
 export default recipe.reducer;
 

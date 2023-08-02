@@ -3,9 +3,7 @@ import Image from 'next/image';
 import { useAppDispatch } from '../../../redux/hooks';
 import { addUserFavorite } from '../../../redux/Slices/authSlice';
 import { findFavoriteRecipe } from '@/Functions';
-import { fetchRecipesbyId } from '../../../FunctionsRecipe';
-
-
+import Link from 'next/link';
 
 type RecipeDataProps = {
     data: recipeType,
@@ -14,15 +12,17 @@ type RecipeDataProps = {
 
 const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
     const dispatch = useAppDispatch();
-    const { title, image } = data;
+    const { id, title, image } = data;
     const checkSsHaveInFavorite = findFavoriteRecipe(data, isAuthUser)
     
     const takeFavorite = () =>{
         isAuthUser ?  dispatch(addUserFavorite(data)) : null
     }
+
+
     return (
-        <div className='w-[20%] h-full flex flex-col justify-center items-start bg-sky-50 p-3'>
-            <h2 className='font-bold sm:text-base mb-2 w-full text-center text-xs'>{title}</h2>
+        <div className='md:w-[20%] h-96 flex flex-col justify-center items-start bg-sky-50 p-3'>
+            <h2 className='font-bold sm:text-base mb-2 w-full text-center text-base'>{title}</h2>
             <Image
                 src={image}
                 alt={title}
@@ -38,9 +38,22 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
                     </svg>
                 </button>
             </span>
-            <button onClick={() => fetchRecipesbyId(data.id)}>TEST</button>
+            <Link href={`${id}`} className='flex w-full justify-end items-center pr-5 font-bold'>
+                Open 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-10 h-10 hover:fill-orange-600 hover:stroke-blue-600">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </Link>
         </div>
     );
 };
 
 export default RecipeData;
+
+function AddRecipeInformation(arg0: Promise<{ title: any; image: any; analyzedInstructions: any; cheap: any; dairyFree: any; readyInMinutes: any; servings: any; glutenFree: any; }>) {
+    throw new Error('Function not implemented.');
+}
+function addInformationById(id: number): any {
+    throw new Error('Function not implemented.');
+}
+
