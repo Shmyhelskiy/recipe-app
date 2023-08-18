@@ -18,7 +18,7 @@ const FullRecipeData:FC<FullRecipeDataProps> = ({data, isAuthUser}) => {
     const takeFavorite = () =>{
         isAuthUser ?  dispatch(addUserFavorite(data)) : null
     }
-    const [startCooking, setStartCooking] = useState(true);
+    const [startCooking, setStartCooking] = useState(false);
 
     
     return (

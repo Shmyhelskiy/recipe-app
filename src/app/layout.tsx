@@ -1,3 +1,4 @@
+import Footer from './components/Footer'
 import Nav from './components/Nav'
 import Providers from './components/Providers'
 import './globals.css'
@@ -16,13 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className='min-h-screen h-full flex flex-col'>
         <Providers>
           <CheckIsSignUp/>
           <header>
             <Nav />
           </header>
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
