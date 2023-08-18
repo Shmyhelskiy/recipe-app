@@ -1,6 +1,6 @@
 "use client"
 
-import { findAuthUser, takeData } from "@/Functions";
+import { findAuthUser } from "@/Functions";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import RecipeData from './components/RecipeData';
 import { fetchRecipes } from "../../FunctionsRecipe";
@@ -10,14 +10,14 @@ import { useState } from "react";
 
 export default function Home() {
   const dispatch = useAppDispatch();
-  let recipes = useAppSelector(state => state.recipeReducer)
+  const recipes = useAppSelector(state => state.recipeReducer)
   const Users = useAppSelector(state => state.authorizationReducer)
   const isAuthUser = findAuthUser(Users);
   const [query, setQuery] = useState('');
 
   const handleSearch = async () => {
     try {
-      const data = await fetchRecipes(query);
+      const data = await fetchRecipes(query);      
       dispatch(fetchRecipe(data.results))
     } catch (error) {
       console.log(error);

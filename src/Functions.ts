@@ -26,8 +26,17 @@ const findRecipe = (recipes: recipeType[], id: number) =>{
         return null
     } else return recipes.splice(recipe, 1)
 }
+
+export const findRecipeById = (recipes: recipeType[], id: number) =>{
+    return recipes.find((item) => item.id === id)
+}
+
 export const findFavoriteRecipe = (recipe: recipeType, user: UserType | undefined) => {
 const  { id } = recipe;
 if ( user?.favorite?.find(item => item.id === id) )return true
 return false
+}
+
+export const makeFirstLetterBig = (word: string) =>{
+    return word.charAt(0).toUpperCase() + word.slice(1);
 }

@@ -23,6 +23,9 @@ const Nav:FC = () => {
                     <li>
                         <Link href='/Favorite' className="mr-3 hover:text-blue-500 cursor-pointer">Favorite</Link>
                     </li>
+                    <li>
+                    <Link href='/Profile' className="ml-3 hover:text-blue-500 cursor-pointer">Profile</Link>
+                    </li>
                 </ul>
             </div>
             {!isAuth ?   

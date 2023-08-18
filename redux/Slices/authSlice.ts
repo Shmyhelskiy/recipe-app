@@ -34,16 +34,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
             }, 
 
             addUserFavorite: (state, action: PayloadAction<recipeType>) => {
+
                 const User = findAuthUser(state);
                 const test = checkFavoriteRecipe(state, action.payload.id)
+                
                 if ( test  === null) {
                     User?.favorite?.push(action.payload);
                 }
                 
                 localStorage.setItem('Users', JSON.stringify(state));
             },
-            
-            
         },
     });
 

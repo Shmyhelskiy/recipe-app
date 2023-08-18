@@ -36,8 +36,8 @@ export const fetchRecipesbyId = async (id: number) =>{
                 },
             }
             )
-            const { title,image, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree} = response.data
-            const data = { title,image, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree}   
+            const { title,image, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree, imageType, extendedIngredients, healthScore} = response.data
+            const data = { id, title,image, imageType, analyzedInstructions, cheap, dairyFree, readyInMinutes, servings, glutenFree, extendedIngredients, healthScore}   
     return data
     }
     catch (error) {
@@ -45,3 +45,4 @@ export const fetchRecipesbyId = async (id: number) =>{
         throw error;
     }
 }
+

@@ -1,19 +1,17 @@
 'use client'
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { useAppSelector } from "../../../redux/hooks";
 import { findAuthUser } from "@/Functions";
 import RecipeData from "../components/RecipeData";
 
 
 const Favorite = () => {
-    const dispatch = useAppDispatch();
     const Users = useAppSelector(state => state.authorizationReducer)
-    const isAuth = findAuthUser(Users);
     const isAuthUser = findAuthUser(Users);
     
     return (
         <main>
-            {!isAuth ? 
+            {!isAuthUser ? 
             <div className="h-full flex justify-center items-center text-base sm:text-3xl">
                 <h1 className="font-bold  text-black/75 mt-[20%]">Sorry, you are not authorized  
                 <Link 

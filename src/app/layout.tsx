@@ -1,7 +1,7 @@
 import Nav from './components/Nav'
 import Providers from './components/Providers'
 import './globals.css'
-import CheckIsSignUp from './helpers/checkIsSignUp'
+import CheckIsSignUp from './helpers/CheckIsSignUp'
 
 
 export const metadata = {

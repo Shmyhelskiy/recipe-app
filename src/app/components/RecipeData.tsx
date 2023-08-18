@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../../redux/hooks';
 import { addUserFavorite } from '../../../redux/Slices/authSlice';
 import { findFavoriteRecipe } from '@/Functions';
 import Link from 'next/link';
+import { fetchRecipeDataById } from '../../../redux/Slices/recipeSlice';
 
 type RecipeDataProps = {
     data: recipeType,
@@ -18,7 +19,9 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
     const takeFavorite = () =>{
         isAuthUser ?  dispatch(addUserFavorite(data)) : null
     }
-
+    const test = () => { 
+        dispatch(fetchRecipeDataById(id))
+    }
 
     return (
         <div className='md:w-[20%] h-96 flex flex-col justify-center items-start bg-sky-50 p-3'>
@@ -30,7 +33,7 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
                 height={200}
                 className='h-[250px] w-[100%]'
             />
-            <span className='flex w-full justify-end pr-5 text-black/70' >
+            <span className='flex w-full justify-end pr-5 text-black/70 mt-2' >
                 Add favorite
                 <button onClick={() => takeFavorite()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`w-6 h-6 ${checkSsHaveInFavorite ? 'fill-yellow-400' : ''}`}>
@@ -38,7 +41,7 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
                     </svg>
                 </button>
             </span>
-            <Link href={`${id}`} className='flex w-full justify-end items-center pr-5 font-bold'>
+            <Link href={`${id}`} className='flex w-full justify-end items-center pr-5 font-bold' onClick={test} >
                 Open 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-10 h-10 hover:fill-orange-600 hover:stroke-blue-600">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -49,11 +52,3 @@ const RecipeData:FC<RecipeDataProps> = ({data, isAuthUser}) => {
 };
 
 export default RecipeData;
-
-function AddRecipeInformation(arg0: Promise<{ title: any; image: any; analyzedInstructions: any; cheap: any; dairyFree: any; readyInMinutes: any; servings: any; glutenFree: any; }>) {
-    throw new Error('Function not implemented.');
-}
-function addInformationById(id: number): any {
-    throw new Error('Function not implemented.');
-}
-
