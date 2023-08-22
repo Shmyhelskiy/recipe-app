@@ -5,6 +5,7 @@ import { findAuthUser } from "@/Functions";
 import { useState } from "react";
 import Link from "next/link";
 import { fetchRecipeDataById } from "../../../redux/Slices/recipeSlice";
+import Unauthorized from "../components/Unauthorized";
 
 const page = () => {
     const dispatch = useAppDispatch();
@@ -12,8 +13,12 @@ const page = () => {
     const isAuth = findAuthUser(Users);
 
     const [isOpenFavorite, setIsOpenFavorite] = useState(false);
+
     return (
-        <main className="h-[80vh] flex justify-center items-center">
+        <main className={`${!isAuth ? null : `flex h-[80vh] justify-center items-center`}`}>
+            {!isAuth ? 
+            <Unauthorized />
+            : 
             <section className="w-1/3 md:h-1/2 shadow-lg flex flex-col md:flex-row text-xs h-full pl-5">
                 <div className="flex w-1/2 flex-col items-center">
                     <Image 
@@ -37,6 +42,8 @@ const page = () => {
                     }
                 </div>
             </section>
+            }
+            
         </main>
     );
 };
