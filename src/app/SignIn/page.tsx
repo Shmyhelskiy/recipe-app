@@ -13,14 +13,9 @@ const router = useRouter();
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
-const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-};
+const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
 
-const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-};
-
+const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
 const findUser = (email:string, pass:string) => {
     const User = Users.find(item => item.email === email);
@@ -41,7 +36,7 @@ const handleSignIn = (e: React.FormEvent<HTMLFormElement>) => {
 return (
     <div className="flex justify-center items-center h-full mt-[15%]">
         <form onSubmit={handleSignIn} className="p-6 bg-gray-100 rounded shadow-md">
-            <h2 className="text-xl mb-4">Sign In</h2>
+            <h1 className="text-xl mb-4">Sign In</h1>
             <div className="mb-4">
             <label className="block mb-2">
                 Email
