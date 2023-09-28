@@ -52,7 +52,7 @@ const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
 return (
     <div className="flex justify-center items-center h-full mt-[15%]">
         <form onSubmit={handleSignUp} className="p-6 bg-gray-100 rounded shadow-md">
-            <h2 className="text-xl mb-4">Sign Up</h2>
+            <h1 className="text-xl mb-4">Sign Up</h1>
             <div className="mb-4">
                 <label className="block mb-2">
                     Name
